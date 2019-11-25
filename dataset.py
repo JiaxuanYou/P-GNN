@@ -38,6 +38,8 @@ def get_tg_dataset(args, dataset_name, use_cache=True, remove_feature=False):
             raise NotImplementedError
 
     # precompute shortest path
+    if not os.path.isdir('datasets'):
+        os.mkdir('datasets')
     if not os.path.isdir('datasets/cache'):
         os.mkdir('datasets/cache')
     f1_name = 'datasets/cache/' + dataset_name + str(args.approximate) + '_dists.dat'

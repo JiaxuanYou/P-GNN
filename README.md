@@ -31,23 +31,23 @@ pip install tensorboardX
 ## Run
 - 3-layer GCN, grid
 ```bash
-python main.py --model GCN --num_layers 3 --dataset grid
+python main.py --model GCN --layer_num 3 --dataset grid
 ```
 - 2-layer P-GNN, grid
 ```bash
-python main.py --model PGNN --num_layers 2 --dataset grid
+python main.py --model PGNN --layer_num 2 --dataset grid
 ```
 - 2-layer P-GNN, grid, with 2-hop shortest path distance
 ```bash
-python main.py --model GCN --num_layers 2 --approximate 2 --dataset grid
+python main.py --model GCN --layer_num 2 --approximate 2 --dataset grid
 ```
 - 3-layer GCN, all datasets
 ```bash
-python main.py --model GCN --num_layers 3 --dataset All
+python main.py --model GCN --layer_num 3 --dataset All
 ```
 - 2-layer PGNN, all datasets
 ```bash
-python main.py --model PGNN --num_layers 2 --dataset All
+python main.py --model PGNN --layer_num 2 --dataset All
 ```
 You are highly encouraged to tune all kinds of hyper-parameters to get better performance. We only did very limited hyper-parameter tuning.
 
