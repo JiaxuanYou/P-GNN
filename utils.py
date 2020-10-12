@@ -199,11 +199,11 @@ def get_dist_max(anchorset_id, dist, device):
     dist_max = torch.zeros((dist.shape[0],len(anchorset_id))).to(device)
     dist_argmax = torch.zeros((dist.shape[0],len(anchorset_id))).long().to(device)
     for i in range(len(anchorset_id)):
-        temp_id = anchorset_id[i]
+        temp_id = torch.as_tensor(anchorset_id[i], dtype=torch.long)
         dist_temp = dist[:, temp_id]
         dist_max_temp, dist_argmax_temp = torch.max(dist_temp, dim=-1)
         dist_max[:,i] = dist_max_temp
-        dist_argmax[:,i] = dist_argmax_temp
+        dist_argmax[:,i] = temp_id[dist_argmax_temp]
     return dist_max, dist_argmax
 
 
